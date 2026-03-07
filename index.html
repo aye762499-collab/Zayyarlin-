@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zayyar Lin - TikTok Downloader & Booster</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --primary: #00f2ea; --secondary: #ff0050; --glass: rgba(255, 255, 255, 0.05); }
+        body { font-family: 'Segoe UI', sans-serif; background: #0b0e11; color: white; margin: 0; overflow-x: hidden; }
+        .bg-animate { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(circle at 50% 50%, #1a1a2e, #0b0e11); }
+        
+        .container { max-width: 500px; margin: auto; padding: 20px; text-align: center; }
+        .glass-card { background: var(--glass); backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.1); border-radius: 25px; padding: 25px; margin-bottom: 20px; box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+        
+        h1 { font-size: 1.8rem; background: linear-gradient(to right, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        input { width: 85%; padding: 15px; border-radius: 12px; border: none; background: rgba(255,255,255,0.1); color: white; outline: none; margin-bottom: 15px; }
+        .main-btn { width: 90%; padding: 15px; border-radius: 12px; border: none; background: linear-gradient(45deg, var(--secondary), var(--primary)); color: white; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .main-btn:hover { transform: scale(1.05); box-shadow: 0 0 20px var(--primary); }
+
+        .info-text { font-size: 0.85rem; color: #aaa; line-height: 1.6; text-align: left; }
+        .secure-tag { color: var(--primary); font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 5px; }
+        
+        /* New View Booster UI */
+        .booster-box { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 20px; padding-top: 20px; }
+        .tag-display { background: rgba(0,0,0,0.4); padding: 10px; border-radius: 10px; margin-top: 10px; display: none; font-size: 0.9rem; color: var(--primary); }
+    </style>
+</head>
+<body>
+    <div class="bg-animate"></div>
+    <div class="container">
+        <div class="glass-card">
+            <h1><i class="fab fa-tiktok"></i> TikTok Saver</h1>
+            <p style="font-size: 0.8rem;">Developer: <b>ဇေယျာလင်း</b></p>
+            
+            <input type="text" id="url" placeholder="ဗီဒီယိုလင့်ခ်ကို ဤနေရာတွင် ထည့်ပါ">
+            <button class="main-btn" onclick="download()">Logo မပါဘဲ ဒေါင်းလုဒ်ဆွဲမည်</button>
+        </div>
+
+        <div class="glass-card">
+            <h2 style="font-size: 1.2rem; color: var(--primary);">🚀 View Booster (Hashtags)</h2>
+            <input type="text" id="topic" placeholder="ဗီဒီယိုအကြောင်းအရာ (ဥပမာ- MLBB)">
+            <button class="main-btn" style="background: #2ecc71;" onclick="boost()">Hashtag ထုတ်ယူမည်</button>
+            <div id="tagBox" class="tag-display"></div>
+        </div>
+
+        <div class="glass-card info-text">
+            <p class="secure-tag"><i class="fas fa-shield-alt"></i> ၁၀၀% လုံခြုံမှုရှိပါသည်</p>
+            <p><b>အသုံးပြုနည်း-</b><br>
+            ၁။ TikTok မှ Share > Copy Link ယူပါ။<br>
+            ၂။ အပေါ်က Box ထဲမှာ လင့်ခ်ကို ထည့်ပါ။<br>
+            ၃။ ဒေါင်းလုဒ်ခလုတ်ကို နှိပ်ပြီး ခဏစောင့်ပါ။</p>
+            <hr style="border: 0.5px solid rgba(255,255,255,0.1);">
+            <p style="text-align: center; font-size: 0.75rem;">သင့်ဒေတာများကို ကျွန်ုပ်တို့ လုံးဝ သိမ်းဆည်းခြင်း မပြုပါ။</p>
+        </div>
+    </div>
+
+    <script>
+        function download() {
+            const url = document.getElementById('url').value;
+            if(!url) return alert("လင့်ခ်အရင်ထည့်ပါ!");
+            alert("ဗီဒီယိုကို Logo မပါဘဲ စတင်ရယူနေပါပြီ...");
+            // Backend API နှင့် ချိတ်ဆက်ရန် နေရာ
+        }
+
+        function boost() {
+            const topic = document.getElementById('topic').value;
+            if(!topic) return alert("အကြောင်းအရာ ရိုက်ထည့်ပါ!");
+            const tags = `#${topic} #foryou #tiktokmyanmar #viewbooster #viral #trending2024`;
+            const box = document.getElementById('tagBox');
+            box.style.display = 'block';
+            box.innerText = tags;
+            navigator.clipboard.writeText(tags);
+            alert("Hashtags များ ကူးယူပြီးပါပြီ။ ဗီဒီယိုတင်လျှင် သုံးပေးပါ!");
+        }
+    </script>
+</body>
+</html>
